@@ -31,7 +31,7 @@ export default function App() {
       <PlayerStatus />
       <br />
       <h3>'TeamsList' test</h3>
-      {/* <TeamsList /> */}
+      <TeamsList />
     </div>
   );
 }
