@@ -4,6 +4,7 @@ import { FocusableInput } from "./components/FocusableInput";
 import { ImageGallery } from "./components/ImageGallery";
 import { PlayerStatus } from "./components/PlayerStatus";
 import { TeamsList } from "./components/TeamsList";
+import { Grocery } from "./components/Grocery";
 
 import './App.css';
 
@@ -15,6 +16,17 @@ export default function App() {
     'https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r5.png',
     'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
   ]);
+  const [products, setProducts] = useState([
+    { name: 'Orange', votes: 0 },
+    { name: 'Apple', votes: 0 },
+    { name: 'Banana', votes: 0 },
+    { name: 'Mango', votes: 0 },
+  ]);
+  const onVote = (prodIdx, vote) => {
+    const newProducts = [...products];
+    newProducts[prodIdx].votes += vote;
+    setProducts(newProducts);
+  }
   return (
     <div className="App">
       {/* Render here each component from the "components" directory */}
@@ -32,6 +44,9 @@ export default function App() {
       <br />
       <h3>'TeamsList' test</h3>
       <TeamsList />
+      <br />
+      <h3>'Grocery' test</h3>
+      <Grocery products={products} onVote={(prodIdx,vote) => onVote(prodIdx,vote)} />
     </div>
   );
 }

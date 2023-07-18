@@ -24,17 +24,17 @@
 
 function Product(props) {
 	function handlePlus() {
-		// logic to vote a product
+		props.onVote(1);
 	}
 
 	function handleMinus() {
-		// logic to unvote a product
+		props.onVote(-1);
 	}
 
 	return (
 		<li>
 			<span>
-				{/* Product name */} - votes: {/* Number of votes*/}
+				{props.name} - votes: {props.votes}
 			</span>
 			<button onClick={handlePlus}>+</button>
 			<button onClick={handleMinus}>-</button>
@@ -42,10 +42,10 @@ function Product(props) {
 	);
 }
 
-export function Grocery({ products }) {
+export function Grocery({ products, onVote }) {
 	return (
 		<ul>
-			{/* Render an array of products, which should call onVote when + or - is clicked */}
+			{products.map((product, index) => <Product onVote={(vote) => onVote(index, vote)} name={product.name} votes={product.votes} />)}
 		</ul>
 	);
 }
