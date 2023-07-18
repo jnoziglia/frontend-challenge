@@ -28,7 +28,7 @@ export default function App() {
       <ImageGallery links={links} onRemove={linkIndex => setLinks(links.filter((link, index) => index != linkIndex))} />
       <br />
       <h3>'PlayerStatus' test</h3>
-      {/* <PlayerStatus /> */}
+      <PlayerStatus />
       <br />
       <h3>'TeamsList' test</h3>
       {/* <TeamsList /> */}

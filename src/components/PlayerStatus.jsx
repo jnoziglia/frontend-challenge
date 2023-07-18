@@ -24,18 +24,25 @@ export function PlayerStatus() {
 
 	// Toggle between the two status values - 'Away' and 'Online'
 	function onToggleStatus() {
-		// Write your code here
+		if (status === "Online") {
+			setStatus("Away");
+		}
+		else {
+			setStatus("Online");
+		}
 	}
 
 	// Implement effect hook below.
 	// Update the counter when status changes.
-	useEffect(() => {}, []);
+	useEffect(() => {
+		setCounter(counter + 1);
+	}, [status]);
 
 	return (
 		<div>
-			<h1>{/** Render the status */}</h1>
-			<h3>{/** Render the counter */}</h3>
-			<button>Toggle status</button>
+			<h1>{ status }</h1>
+			<h3>{ counter }</h3>
+			<button onClick={onToggleStatus}>Toggle status</button>
 		</div>
 	);
 }
