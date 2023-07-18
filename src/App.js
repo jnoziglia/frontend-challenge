@@ -22,7 +22,7 @@ export default function App() {
       <Message />
       <br />
       <h3>'FocusableInput' test</h3>
-      {/* <FocusableInput /> */}
+      <FocusableInput />
       <br />
       <h3>'ImageGallery' test</h3>
       <ImageGallery links={links} onRemove={linkIndex => setLinks(links.filter((link, index) => index != linkIndex))} />

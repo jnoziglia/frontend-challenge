@@ -10,11 +10,23 @@
 import React, { useEffect, useRef } from "react";
 
 function Input(props) {
-	// Implement
+	const ref = useRef(null);
+
+	useEffect(() => {
+		if (props.focusable) {
+			ref.current.focus();
+		}
+	}, [props.focusable]);
+
+	return (
+		<TextInput ref={ref} {...props} />
+	);
 }
 
 const TextInput = React.forwardRef((props, ref) => {
-  // Implement
+  	return (
+		<input ref={ref} />
+	);
 });
 
 // Implement:
@@ -22,5 +34,7 @@ const TextInput = React.forwardRef((props, ref) => {
 // and the input is not focused, it should receive focus.
 // If focused prop is true, the input should receive the focus.
 export function FocusableInput({ focusable = false }) {
-	// Implement
+	return (
+		<Input focusable={focusable} />
+	);
 }
