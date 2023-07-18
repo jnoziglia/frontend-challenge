@@ -10,16 +10,16 @@
 function Image({ src, onRemove }) {
 	return (
 		<div class="image">
-			<img />
-			<button class="remove">X</button>
+			<img src={src} />
+			<button class="remove" onClick={onRemove}>X</button>
 		</div>
 	);
 }
 
-export function ImageGallery({ links }) {
+export function ImageGallery({ links, onRemove }) {
 	return (
 		<div>
-			{/* Implement here the Image Gallery using <Image /> component */}
+			{ links.map((link, index) => <Image src={link} onRemove={() => onRemove(index)} key={link+index} />) }
 		</div>
 	);
 }
