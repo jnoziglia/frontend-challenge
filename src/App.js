@@ -13,48 +13,79 @@ import './App.css';
 import { useState } from "react";
 
 export default function App() {
-  const [links, setLinks] = useState([
-    'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
-    'https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r5.png',
-    'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
-  ]);
-  const [products, setProducts] = useState([
-    { name: 'Orange', votes: 0 },
-    { name: 'Apple', votes: 0 },
-    { name: 'Banana', votes: 0 },
-    { name: 'Mango', votes: 0 },
-  ]);
-  const onVote = (index, vote) => {
+  const [links, setLinks] = useState(IMAGES_LINKS);
+  const [products, setProducts] = useState(PRODUCTS);
+  const [activeSection, setActiveSection] = useState(SECTIONS[0]);
+
+  function onVote(index, vote) {
     const newProducts = [...products];
     newProducts[index].votes += vote;
     setProducts(newProducts);
   }
+
+  let section = null;
+  switch (activeSection) {
+    case 'Message':
+      section = <Message />;
+      break;
+    case 'FocusableInput':
+      section = <FocusableInput />;
+      break;
+    case 'ImageGallery':
+      section = <ImageGallery links={links} />;
+      break;
+    case 'PlayerStatus':
+      section = <PlayerStatus />;
+      break;
+    case 'TeamsList':
+      section = <TeamsList />;
+      break;
+    case 'Grocery':
+      section = <Grocery products={products} onVote={(index,vote) => onVote(index,vote)} />;
+      break;
+    case 'Rating':
+      section = <Rating />;
+      break;
+    case 'ListItemsForNavigation':
+      section = <ListItemsForNavigation />;
+      break;
+    default:
+      section = null;
+  }
+
   return (
     <div className="App">
       {/* Render here each component from the "components" directory */}
-      <h3>'Message' test</h3>
-      <Message />
+      { SECTIONS.map((section, index) => (
+        <button key={index} onClick={() => setActiveSection(section)}>{section}</button>
+      )) }
+      <h3>'{activeSection}' test</h3>
+      { section }
       <br />
-      <h3>'FocusableInput' test</h3>
-      <FocusableInput />
-      <br />
-      <h3>'ImageGallery' test</h3>
-      <ImageGallery links={links} />
-      <br />
-      <h3>'PlayerStatus' test</h3>
-      <PlayerStatus />
-      <br />
-      <h3>'TeamsList' test</h3>
-      <TeamsList />
-      <br />
-      <h3>'Grocery' test</h3>
-      <Grocery products={products} onVote={(index,vote) => onVote(index,vote)} />
-      <br />
-      <h3>'Rating' test</h3>
-      <Rating />
-      <br />
-      <h3>'ListItemsForNavigation' test</h3>
-      <ListItemsForNavigation />
     </div>
   );
 }
+
+const IMAGES_LINKS = [
+  'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
+  'https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r5.png',
+  'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
+];
+
+const PRODUCTS = [
+  { name: 'Orange', votes: 0 },
+  { name: 'Apple', votes: 0 },
+  { name: 'Banana', votes: 0 },
+  { name: 'Mango', votes: 0 },
+]
+
+const SECTIONS = [
+  'Message',
+  'FocusableInput',
+  'ImageGallery',
+  'PlayerStatus',
+  'TeamsList',
+  'Grocery',
+  'Rating',
+  'ListItemsForNavigation'
+];
