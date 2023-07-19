@@ -45,7 +45,7 @@ function Product(props) {
 export function Grocery({ products, onVote }) {
 	return (
 		<ul>
-			{products.map((product, index) => <Product onVote={(vote) => onVote(index, vote)} name={product.name} votes={product.votes} />)}
+			{products.map((product, index) => <Product key={product.name} onVote={(vote) => onVote(index, vote)} name={product.name} votes={product.votes} />)}
 		</ul>
 	);
 }

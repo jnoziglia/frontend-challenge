@@ -29,7 +29,7 @@ export default function App() {
       section = <Message />;
       break;
     case 'FocusableInput':
-      section = <FocusableInput />;
+      section = <FocusableInput focusable={true} />;
       break;
     case 'ImageGallery':
       section = <ImageGallery links={links} />;
@@ -55,10 +55,12 @@ export default function App() {
 
   return (
     <div className="App">
-      {/* Render here each component from the "components" directory */}
-      { SECTIONS.map((section, index) => (
-        <button key={index} onClick={() => setActiveSection(section)}>{section}</button>
-      )) }
+      <div className="navigation">
+        {/* Render here each component from the "components" directory */}
+        { SECTIONS.map((section, index) => (
+          <button key={index} onClick={() => setActiveSection(section)}>{section}</button>
+        )) }
+      </div>
       <h3>'{activeSection}' test</h3>
       { section }
       <br />
