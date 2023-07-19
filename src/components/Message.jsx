@@ -22,7 +22,7 @@ export function Message() {
 	return (
 		<>
 			<a href="#" onClick={toggleMessage}>Want to buy a new car?</a>
-			{ showMessage ? <p>Call +11 22 33 44 now!</p> : null }
+			{ showMessage && <p>Call +11 22 33 44 now!</p> }
 		</>
 	);
 }
