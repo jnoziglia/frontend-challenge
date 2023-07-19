@@ -30,11 +30,7 @@ export function Rating() {
 	const [rating, setRating] = useState(0);
 	return (
 		<div id="rating">
-			<span className={rating >= 1 ? "active" : ""} onClick={() => setRating(1)}>*</span>
-			<span className={rating >= 2 ? "active" : ""} onClick={() => setRating(2)}>*</span>
-			<span className={rating >= 3 ? "active" : ""} onClick={() => setRating(3)}>*</span>
-			<span className={rating >= 4 ? "active" : ""} onClick={() => setRating(4)}>*</span>
-			<span className={rating >= 5 ? "active" : ""} onClick={() => setRating(5)}>*</span>
+			{[...Array(5)].map((_, index) => <span key={index} className={`stars ${rating >= index + 1 ? "active" : ""}`} onClick={() => setRating(index + 1)}>{rating >= index + 1 ? String.fromCharCode(9733) : String.fromCharCode(9734)}</span>)}
 		</div>
 	);
 }
