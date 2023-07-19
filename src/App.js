@@ -6,6 +6,7 @@ import { PlayerStatus } from "./components/PlayerStatus";
 import { TeamsList } from "./components/TeamsList";
 import { Grocery } from "./components/Grocery";
 import { Rating } from "./components/Rating";
+import { ListItemsForNavigation } from "./components/ListItemsForNavigation";
 
 import './App.css';
 
@@ -23,9 +24,9 @@ export default function App() {
     { name: 'Banana', votes: 0 },
     { name: 'Mango', votes: 0 },
   ]);
-  const onVote = (prodIdx, vote) => {
+  const onVote = (index, vote) => {
     const newProducts = [...products];
-    newProducts[prodIdx].votes += vote;
+    newProducts[index].votes += vote;
     setProducts(newProducts);
   }
   return (
@@ -47,10 +48,13 @@ export default function App() {
       <TeamsList />
       <br />
       <h3>'Grocery' test</h3>
-      <Grocery products={products} onVote={(prodIdx,vote) => onVote(prodIdx,vote)} />
+      <Grocery products={products} onVote={(index,vote) => onVote(index,vote)} />
       <br />
       <h3>'Rating' test</h3>
       <Rating />
+      <br />
+      <h3>'ListItemsForNavigation' test</h3>
+      <ListItemsForNavigation />
     </div>
   );
 }
