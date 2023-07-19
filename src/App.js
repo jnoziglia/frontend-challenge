@@ -71,6 +71,12 @@ export default function App() {
 const IMAGES_LINKS = [
   'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
   'https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r5.png',
+  'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
+  'https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r5.png',
+  'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
+  'https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r5.png',
+  'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
+  'https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r5.png',
   'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
 ];
 

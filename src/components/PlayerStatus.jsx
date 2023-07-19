@@ -35,7 +35,7 @@ export function PlayerStatus() {
 	// Implement effect hook below.
 	// Update the counter when status changes.
 	useEffect(() => {
-		setCounter(counter + 1);
+		setCounter(c => c + 1);
 	}, [status]);
 
 	return (

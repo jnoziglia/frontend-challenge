@@ -39,7 +39,7 @@
 
 .App .navigation {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
 }
 
@@ -58,4 +58,27 @@
   color: #61dafb;
   font-size: 2rem;
   cursor: pointer;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid black;
+}
+
+.gallery .image {
+  position: relative;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.gallery .image .remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: bolder;
+  font-size: 1.2rem;
 }

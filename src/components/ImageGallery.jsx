@@ -18,7 +18,7 @@ function Image({ src, onRemove }) {
 	else {
 		return (
 			<div className="image">
-				<img src={src} /> 
+				<img src={src} alt="" /> 
 				<button className="remove" onClick={() => setIsRemoved(true)}>X</button>
 			</div>
 		);
@@ -27,7 +27,7 @@ function Image({ src, onRemove }) {
 
 export function ImageGallery({ links }) {
 	return (
-		<div>
+		<div className="gallery">
 			{ links.map((link, index) => <Image src={link} key={link+index} />) }
 		</div>
 	);
