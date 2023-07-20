@@ -26,6 +26,11 @@
 
 import { useState } from "react";
 
+/* 
+ * In order to solve as it was asked and not change the proposed html, the rating is done with asterisks and the styling is done with the rating id.
+ * Another approach was added at the end of the file  
+ */
+
 export function Rating() {
 	const [rating, setRating] = useState(0);
 	return (
@@ -33,9 +38,11 @@ export function Rating() {
 			{[...Array(5)].map((_, index) => <span key={index} className={`${rating >= index + 1 ? "active" : ""}`} onClick={() => setRating(index + 1)}>*</span>)}
 		</div> 
 	);
-	{/* Another approach with stars instead of asterisks
-	<div id="rating">
-		{[...Array(5)].map((_, index) => <span key={index} className={`stars ${rating >= index + 1 ? "active" : ""}`} onClick={() => setRating(index + 1)}>{rating >= index + 1 ? String.fromCharCode(9733) : String.fromCharCode(9734)}</span>)}
-	</div> 
-	*/}
 }
+{/* 
+	* Another approach with stars instead of asterisks
+	*
+	* <div id="rating">
+	* 	{[...Array(5)].map((_, index) => <span key={index} className={`stars ${rating >= index + 1 ? "active" : ""}`} onClick={() => setRating(index + 1)}>{rating >= index + 1 ? String.fromCharCode(9733) : String.fromCharCode(9734)}</span>)}
+	* </div> 
+*/}

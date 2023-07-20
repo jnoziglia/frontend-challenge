@@ -25,6 +25,10 @@ function Image({ src, onRemove }) {
 	}
 }
 
+/* 
+ * As opposed to the Grocery example, in order to keep the example as it was and since there are no requirements on where to handle the state,
+ * the removed state is handled inside the image component 
+ */
 export function ImageGallery({ links }) {
 	return (
 		<div className="gallery">

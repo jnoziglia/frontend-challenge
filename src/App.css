@@ -147,6 +147,12 @@ button:active {
   background: none
 }
 
+.grocery__item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2vh;
+}
+
 .teams__item {
   display: flex;
   align-items: center;

@@ -12,6 +12,8 @@ import './App.css';
 
 import { useState } from "react";
 
+/* Added some code here to present the examples in a more organized way */
+
 export default function App() {
   const [links, setLinks] = useState(IMAGES_LINKS);
   const [products, setProducts] = useState(PRODUCTS);

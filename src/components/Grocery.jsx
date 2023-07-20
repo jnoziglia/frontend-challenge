@@ -36,12 +36,15 @@ function Product(props) {
 			<span className="grocery__item__name">
 				{props.name} - votes: {props.votes}
 			</span>
-			<button className="grocery__item__action--plus" onClick={handlePlus}>+</button>
-			<button className="grocery__item__action--minus" onClick={handleMinus}>-</button>
+			<span className="grocery__item__actions">
+				<button className="grocery__item__actions--plus" onClick={handlePlus}>+</button>
+				<button className="grocery__item__actions--minus" onClick={handleMinus}>-</button>
+			</span>
 		</li>
 	);
 }
 
+/* Added onVote prop in order to keep the state in the topmost component. Products array (with both product name and votes) is handled in the App */
 export function Grocery({ products, onVote }) {
 	return (
 		<ul className="grocery">
