@@ -17,9 +17,9 @@ function Image({ src, onRemove }) {
 	}
 	else {
 		return (
-			<div className="image">
-				<img src={src} alt="" /> 
-				<button className="remove" onClick={() => setIsRemoved(true)}>X</button>
+			<div className="gallery__item">
+				<img className="gallery__item__img" src={src} alt="" /> 
+				<button className="gallery__item__remove" onClick={() => setIsRemoved(true)}>X</button>
 			</div>
 		);
 	}

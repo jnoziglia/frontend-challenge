@@ -67,12 +67,12 @@ const TEAMS = [
 
 const Team = ({ name, players, games }) => {
 	return (
-		<li key={name}>
-			<div className="team">
-				<div className="name">{name}</div>
-				<div className="players">{players.length}</div>
-				<div className="score">{games.reduce((acc, game) => acc + game.score, 0)}</div>
-			</div>
+		<li key={name} className="teams__item">
+				<div className="teams__item__name">{name}</div>
+				<div className="teams__item__info">
+					<div className="teams__item__info__players">Players: {players.length}</div>
+					<div className="teams__item__info__score">Score: {games.reduce((acc, game) => acc + game.score, 0)}</div>	
+				</div>	
 		</li>
 	);
 }

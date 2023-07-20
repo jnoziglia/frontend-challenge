@@ -32,19 +32,19 @@ function Product(props) {
 	}
 
 	return (
-		<li>
-			<span>
+		<li className="grocery__item">
+			<span className="grocery__item__name">
 				{props.name} - votes: {props.votes}
 			</span>
-			<button onClick={handlePlus}>+</button>
-			<button onClick={handleMinus}>-</button>
+			<button className="grocery__item__action--plus" onClick={handlePlus}>+</button>
+			<button className="grocery__item__action--minus" onClick={handleMinus}>-</button>
 		</li>
 	);
 }
 
 export function Grocery({ products, onVote }) {
 	return (
-		<ul>
+		<ul className="grocery">
 			{products.map((product, index) => <Product key={product.name} onVote={(vote) => onVote(index, vote)} name={product.name} votes={product.votes} />)}
 		</ul>
 	);

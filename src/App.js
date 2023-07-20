@@ -58,11 +58,13 @@ export default function App() {
       <div className="navigation">
         {/* Render here each component from the "components" directory */}
         { SECTIONS.map((section, index) => (
-          <button key={index} onClick={() => setActiveSection(section)}>{section}</button>
+            <button key={index} onClick={() => setActiveSection(section)} className={section === activeSection ? "active" : ""}>{section}</button>
         )) }
       </div>
       <h3>'{activeSection}' test</h3>
-      { section }
+      <div className="container">
+        { section }
+      </div>
       <br />
     </div>
   );
