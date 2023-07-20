@@ -101,6 +101,18 @@ button:active {
   cursor: pointer;
 }
 
+#rating {
+  font-size: 3rem;
+}
+
+#rating span {
+  cursor: pointer;
+}
+
+#rating .active {
+  color: #f9cc28;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;

@@ -30,7 +30,12 @@ export function Rating() {
 	const [rating, setRating] = useState(0);
 	return (
 		<div id="rating">
-			{[...Array(5)].map((_, index) => <span key={index} className={`stars ${rating >= index + 1 ? "active" : ""}`} onClick={() => setRating(index + 1)}>{rating >= index + 1 ? String.fromCharCode(9733) : String.fromCharCode(9734)}</span>)}
-		</div>
+			{[...Array(5)].map((_, index) => <span key={index} className={`${rating >= index + 1 ? "active" : ""}`} onClick={() => setRating(index + 1)}>*</span>)}
+		</div> 
 	);
+	{/* Another approach with stars instead of asterisks
+	<div id="rating">
+		{[...Array(5)].map((_, index) => <span key={index} className={`stars ${rating >= index + 1 ? "active" : ""}`} onClick={() => setRating(index + 1)}>{rating >= index + 1 ? String.fromCharCode(9733) : String.fromCharCode(9734)}</span>)}
+	</div> 
+	*/}
 }
