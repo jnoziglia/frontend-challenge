@@ -40,15 +40,15 @@ export function ListItemsForNavigation(props) {
 	function handleKeyDown(event) {
 		// Add the proper logic to calculate the index that correspond to the item that should be focused.
 		switch(event.key) {
-			case "ArrowUp":
-			case "ArrowRight":
+			case "ArrowDown":
+			case "ArrowLeft":
 				event.preventDefault();
 				if (selectedIndex > 0) {
 					setSelectedIndex(selectedIndex - 1);
 				}
 				break;
-			case "ArrowDown":
-			case "ArrowLeft":
+			case "ArrowUp":
+			case "ArrowRight":
 				event.preventDefault();
 				if (selectedIndex < itemsList.length - 1) {
 					setSelectedIndex(selectedIndex + 1);
@@ -61,7 +61,6 @@ export function ListItemsForNavigation(props) {
 
 	function getMap() {
 		if (!activeItemRef.current) {
-		  // Inicializa el Map en el primer uso
 		  activeItemRef.current = new Map();
 		}
 		return activeItemRef.current;
