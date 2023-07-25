@@ -23,14 +23,12 @@ export function ListItemsForNavigation(props) {
 		selectedIndex,
 		setSelectedIndex,
 	] = useState(0);
-	const activeItemRef = useRef();
+	const activeItemRef = useRef([]);
 
 	useEffect(
 		function () {
 			// Focus the item using this effect
-			const map = getMap();
-			const node = map.get(selectedIndex);
-			node.focus();
+			activeItemRef.current[selectedIndex].focus();
 		},
 		[
 			selectedIndex
@@ -59,27 +57,13 @@ export function ListItemsForNavigation(props) {
 		}
 	}
 
-	function getMap() {
-		if (!activeItemRef.current) {
-		  activeItemRef.current = new Map();
-		}
-		return activeItemRef.current;
-	  }
-
 	return (
 		<ul onKeyDown={handleKeyDown}>
 			{/** Render itemsList as you wish, probably you want to render <li></li> with the proper attributes */}
 			{/** If you have issues focusing an element, it is probably because the element is not focusable originally. Try with tabIndex={0} */}
 			{/** Do not forget to pass the reference to the selected item */}
 			{ itemsList.map((item, index) => (
-				<li key={item.name+index} tabIndex={0} ref={(node) => {
-					const map = getMap();
-					if (node) {
-					  map.set(index, node);
-					} else {
-					  map.delete(index);
-					}
-				  }}>
+				<li key={item.name+index} tabIndex={0} ref={ref => activeItemRef.current[index] = ref}>
 					{item.name}
 				</li>
 			)) }
